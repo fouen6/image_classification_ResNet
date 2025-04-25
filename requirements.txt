@@ -1,0 +1,32 @@
+certifi==2025.1.31
+charset-normalizer==3.4.1
+colorama==0.4.6
+contourpy==1.3.0
+cycler==0.12.1
+filelock==3.18.0
+fonttools==4.57.0
+fsspec==2025.3.2
+idna==3.10
+importlib_resources==6.5.2
+Jinja2==3.1.6
+kiwisolver==1.4.7
+MarkupSafe==3.0.2
+matplotlib==3.9.4
+mpmath==1.3.0
+networkx==3.2.1
+numpy==1.26.0
+opencv-python==4.11.0.86
+packaging==25.0
+pillow==11.2.1
+pyparsing==3.2.3
+python-dateutil==2.9.0.post0
+requests==2.32.3
+six==1.17.0
+sympy==1.13.3
+torch @ file:///E:/anaconda3/envs/torch-2.1.0%2Bcu121-cp39-cp39-win_amd64.whl#sha256=ff0ee0b7ab3d6cfbf7875c8b1d130309ee5a18fbf2fda11f3da86a783e6e679c
+torchaudio @ file:///E:/anaconda3/envs/torchaudio-2.1.0%2Bcu121-cp39-cp39-win_amd64.whl#sha256=f663ab65ef20f72587102b2844b92fd94847848284de88a906908676beb25498
+torchvision @ file:///E:/anaconda3/envs/torchvision-0.16.0%2Bcu121-cp39-cp39-win_amd64.whl#sha256=e0b29e67f0f2b059fc99d0bb9dae3f107a0bcd656e0310504758569a137f874b
+tqdm==4.67.1
+typing_extensions==4.13.2
+urllib3==2.4.0
+zipp==3.21.0
