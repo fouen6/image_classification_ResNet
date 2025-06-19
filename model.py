@@ -56,7 +56,7 @@ class Bottleneck(nn.Module):
     expansion = 4
     def __init__(self,in_planes,planes,stride=1,downsample=None,norm_layer=nn.BatchNorm2d):
         super(Bottleneck,self).__init__()
-        self.conv1 = conv1x1(in_planes,planes,stride)
+        self.conv1 = conv1x1(in_planes,planes)
         self.bn1 = norm_layer(planes)
         self.conv2 = conv3x3(planes,planes,stride)
         self.bn2 = norm_layer(planes)
@@ -68,6 +68,7 @@ class Bottleneck(nn.Module):
 
     def forward(self,x):
         identity = x
+
 
         out = self.conv1(x)
         out = self.bn1(out)
@@ -83,7 +84,6 @@ class Bottleneck(nn.Module):
 
         if self.downsample is not None:
             identity = self.downsample(x)
-
 
         out += identity
         out = self.relu(out)
@@ -164,19 +164,19 @@ def resnet34(pretrained=False,**kwargs):
     return model
 
 def resnet50(pretrained=False,**kwargs):
-    model = ResNet(BasicBlock,[3,4,6,3],**kwargs)
+    model = ResNet(Bottleneck,[3,4,6,3],**kwargs)
     if pretrained:
         model.load_state_dict(model_zoo.load_url(model_urls['resnet50']))
     return model
 
 def resnet101(pretrained=False,**kwargs):
-    model = ResNet(BasicBlock,[3,4,23,3],**kwargs)
+    model = ResNet(Bottleneck,[3,4,23,3],**kwargs)
     if pretrained:
         model.load_state_dict(model_zoo.load_url(model_urls['resnet101']))
     return model
 
 def resnet152(pretrained=False,**kwargs):
-    model = ResNet(BasicBlock,[3,8,36,3],**kwargs)
+    model = ResNet(Bottleneck,[3,8,36,3],**kwargs)
     if pretrained:
         model.load_state_dict(model_zoo.load_url(model_urls['resnet152']))
     return model
@@ -196,7 +196,7 @@ def get_model(model):
 
 if __name__ == '__main__':
     #model = resnet18()
-    model = get_model('resnet18')
+    model = get_model('resnet50')
     print(model)
     img = torch.randn(1,3,224,224)
     output = model(img)
